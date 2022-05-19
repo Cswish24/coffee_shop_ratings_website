@@ -1,5 +1,5 @@
 import os
-
+from forms import CreateShopForm
 from flask import Flask, render_template, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
@@ -28,18 +28,24 @@ db.create_all()
 @app.route('/')
 def home():
     shops = Cafe.query.all()
-    return render_template("index.html")
-
-
-@app.route('/coffee_shops')
-def shop_list():
-    shops = Cafe.query.all()
-    return render_template('shops.html', shops=shops)
+    return render_template('index.html', shops=shops)
 
 
 @app.route('/add_shop', methods=['GET', 'POST'])
 def add_shop():
-    pass
+    form = CreateShopForm()
+    if form.validate_on_submit():
+        new_shop = Cafe(
+            shop_name=form.shop_name.data,
+            wifi=form.wifi.data,
+            coffee=form.coffee.data,
+            snacks=form.snacks.data,
+            electrical_outlets=form.electrical_outlets.data,
+        )
+        db.session.add(new_shop)
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("create_shop.html", form=form)
 
 
 @app.route('/shop_view/<int:shop_id>')
@@ -47,15 +53,32 @@ def view_shop():
     pass
 
 
-@app.route('/edit_shop/<int:shop_id>', methods=['GET', 'PATCH'])
+@app.route('/edit_shop/<int:shop_id>', methods=['GET', 'POST'])
 def edit_shop(shop_id):
-    pass
+    shop = Cafe.query.get(shop_id)
+    edit_form = CreateShopForm(
+        shop_name=shop.shop_name,
+        wifi=shop.wifi,
+        coffee=shop.coffee,
+        snacks=shop.snacks,
+        electrical_outlets=shop.electrical_outlets,
+    )
+    if edit_form.validate_on_submit():
+        shop.shop_name = edit_form.shop_name.data
+        shop.wifi = edit_form.wifi.data
+        shop.coffee = edit_form.coffee.data
+        shop.snacks = edit_form.snacks.data
+        shop.electrical_outlets = edit_form.electrical_outlets.data
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("create_shop.html", form=edit_form)
 #validate on submit works for patches to
 
 
 @app.route('/delete_shop/<int:shop_id>', methods=['GET', 'DELETE'])
 def delete_shop(shop_id):
     pass
+
 
 if __name__ == "__main__":
     app.run(debug=True)
