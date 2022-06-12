@@ -62,6 +62,12 @@ html {
   color: #a58a64;
 }
 
+a:link,
+a:visited {
+text-decoration: none;
+color: inherit;
+}
+
 .container {
   height: 100vh;
   background-image: linear-gradient(
@@ -114,6 +120,52 @@ main {
   margin-bottom: 2.4rem;
 }
 
+.shop-link:hover,
+.shop-link:active {
+  color: #7c5302;
+}
+
 .shops {
   font-size: 2.4rem;
+}
+
+.add {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  background-image: linear-gradient(
+    rgba(36, 35, 35, 0.3),
+    rgba(36, 36, 36, 0.3)
+  );
+  border-radius: 12px;
+}
+
+.add-header{
+  align-self: center;
+  font-size: 3.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.add-subheading {
+  font-size: 2.4rem;
+  align-self: center;
+  margin-bottom: 1.2rem;
+}
+
+div .add-button:link,
+div .add-button:visited {
+  background-color: #7c5302;
+  color: #a58a64;
+  padding: 1.2rem;
+  font-size: 2.4rem;
+  border-radius: 12px;
+  align-self: center;
+  width: fit-content;
+
+}
+
+div .add-button:hover,
+div .add-button:active {
+  color: #7c5302;
+  background-color: #a58a64;
 }

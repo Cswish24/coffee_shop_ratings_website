@@ -5,16 +5,22 @@
     All inclusive rating system taking into account coffee, snacks, and study
     friendliness
   </h2>
-<div class="main-container">
-  <div class="shop-list">
-    <h3 class="list-header">Shops in San Marcos Area</h3>
-    {% for shop in shops%}
-      <div class="shops">
-       {{shop.shop_name}}
-       {{shop.coffee}} 
-      </div> 
-    {% endfor %}
+  <div class="main-container">
+    <div class="shop-list">
+      <h3 class="list-header">Shops in San Marcos Area</h3>
+      {% for shop in shops%}
+        <div class="shops">
+          <a class="shop-link" href="{{url_for('view_shop', shop_id=shop.id)}}">{{shop.shop_name}}</a>
+        {{shop.coffee}} 
+        </div> 
+      {% endfor %}
+    </div>
+    <div class="add">
+
+          <h3 class="add-header">Know any Good Spots?</h3>
+          <p class ="add-subheading">Great coffee is meant to be shared with the world!</p>
+          <a class="add-button" href="{{url_for('add_shop')}}"> Add Shop!</a>
+    </div>
   </div>
-</div>
 </main>
 {% endblock %}
