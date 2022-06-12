@@ -1,11 +1,7 @@
-{% include "header.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
-<body>
-{% if edit_form %}
+{% include "header.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block
+content %} {% if edit_form %}
 <h1>Update Coffee Shop</h1>
 {% else %}
 <h1>Insert a New Coffee Shop</h1>
-{% endif %}
-{{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-</body>
-</html>
+{% endif %} {{ wtf.quick_form(form, novalidate=True, button_map={"submit":
+"primary"}) }} {% endblock content %}

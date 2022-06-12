@@ -75,9 +75,12 @@ def edit_shop(shop_id):
 #validate on submit works for patches to
 
 
-@app.route('/delete_shop/<int:shop_id>', methods=['GET', 'DELETE'])
+@app.route('/delete_shop/<int:shop_id>')
 def delete_shop(shop_id):
-    pass
+    shop_to_delete = Cafe.query.get(shop_id)
+    db.session.delete(shop_to_delete)
+    db.session.commit()
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":

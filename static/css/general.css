@@ -1,0 +1,119 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weights
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+- Line heights
+Default: 1
+Small: 1.05
+Medium: 1.2
+Paragraph default: 1.6
+Large: 1.8
+
+- Letter spacing
+-0.5px
+0.75px
+
+--- 02 COLORS
+
+-- Primary: 
+-#ca8a04
+-#a16207
+-#854d0e
+-#713f12
+
+- Tints:
+
+- Shades: 
+
+
+- Accents:
+- Greys
+
+
+
+--- 05 SHADOWS
+
+
+
+--- 06 BORDER-RADIUS
+
+
+--- 07 WHITESPACE
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  color: #a58a64;
+}
+
+.container {
+  height: 100vh;
+  background-image: linear-gradient(
+      rgba(36, 35, 35, 0.7),
+      rgba(36, 36, 36, 0.7)
+    ),
+    url("../../static/images/background.jpg");
+  background-size: cover;
+}
+
+main {
+  padding-left: 3.2rem;
+  max-width: 100%;
+}
+.header {
+  color: #a58a64;
+  text-align: center;
+  font-size: 4.8rem;
+  padding-left: 3.2rem;
+  margin-bottom: 2.4rem;
+}
+.subheading {
+  text-align: center;
+  color: #7c5302;
+  font-size: 3.2rem;
+  margin-bottom: 3.2rem;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 8rem;
+}
+
+.shop-list{
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  background-image: linear-gradient(
+    rgba(36, 35, 35, 0.3),
+    rgba(36, 36, 36, 0.3)
+  );
+  border-radius: 12px;
+
+}
+
+.list-header {
+  align-self: center;
+  font-size: 3.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.shops {
+  font-size: 2.4rem;
+}

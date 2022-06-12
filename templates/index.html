@@ -1,18 +1,20 @@
-{% extends 'bootstrap/base.html' %}
-{% block content %}
 {% include 'header.html' %}
-
-<body>
-<h1>Coffee Shop Ratings San Marcos</h1>
-<h2>All inclusive rating system taking into account coffee, snacks, and study friendliness</h2>
-<h2><a class="btn btn-primary" href="{{url_for('add_shop')}}">Add shop</a></h2>
-{% for shop in shops %}
-<p>
-    <a href="{{url_for('view_shop', shop_id=shop.id)}}">{{shop.shop_name}}</a>
-    <a class="btn btn-primary" href="{{url_for('edit_shop', shop_id=shop.id)}}">Update</a>
-    <a class="btn btn-primary" href="{{url_for('delete_shop', shop_id=shop.id)}}">Delete</a>
-</p>
-{% endfor %}
-</body>
-</html>
+{% block content %}
+<main>
+  <h2 class="subheading">
+    All inclusive rating system taking into account coffee, snacks, and study
+    friendliness
+  </h2>
+<div class="main-container">
+  <div class="shop-list">
+    <h3 class="list-header">Shops in San Marcos Area</h3>
+    {% for shop in shops%}
+      <div class="shops">
+       {{shop.shop_name}}
+       {{shop.coffee}} 
+      </div> 
+    {% endfor %}
+  </div>
+</div>
+</main>
 {% endblock %}
