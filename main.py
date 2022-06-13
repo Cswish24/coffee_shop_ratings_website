@@ -20,7 +20,7 @@ class Cafe(db.Model):
     coffee = db.Column(db.String(10), nullable=True)
     snacks = db.Column(db.String(10), nullable=True)
     electrical_outlets = db.Column(db.String(10), nullable=True)
-
+    overall = db.Column(db.String(10), nullable=True)
 
 db.create_all()
 
@@ -35,12 +35,21 @@ def home():
 def add_shop():
     form = CreateShopForm()
     if form.validate_on_submit():
+        w = float(len(form.wifi.data))
+        x = float(len(form.coffee.data))
+        y = float(len(form.snacks.data))
+        z = float(len(form.electrical_outlets.data))
+
+        overall_rating = round((w + x + y + z)/4)
+        overall = overall_rating * "⭐"
+
         new_shop = Cafe(
             shop_name=form.shop_name.data,
             wifi=form.wifi.data,
             coffee=form.coffee.data,
             snacks=form.snacks.data,
             electrical_outlets=form.electrical_outlets.data,
+            overall=overall
         )
         db.session.add(new_shop)
         db.session.commit()

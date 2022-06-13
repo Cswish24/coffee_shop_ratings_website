@@ -5,3 +5,16 @@ content %} {% if edit_form %}
 <h1>Insert a New Coffee Shop</h1>
 {% endif %} {{ wtf.quick_form(form, novalidate=True, button_map={"submit":
 "primary"}) }} {% endblock content %}
+
+
+<!-- <div>
+  <label for="select-where">Where did you hear from us?</label>
+  <select id="select-where" required>
+    <option value="">Please choose one option:</option>
+    <option value="friends">Friends and family</option>
+    <option value="youtube">YouTube video</option>
+    <option value="podcast">Podcast</option>
+    <option value="ad">Facebook ad</option>
+    <option value="others">Others</option>
+  </select>
+</div> -->

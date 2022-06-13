@@ -11,7 +11,7 @@
       {% for shop in shops%}
         <div class="shops">
           <a class="shop-link" href="{{url_for('view_shop', shop_id=shop.id)}}">{{shop.shop_name}}</a>
-        {{shop.coffee}} 
+        {{shop.overall}} 
         </div> 
       {% endfor %}
     </div>
