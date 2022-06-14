@@ -162,6 +162,7 @@ div .add-button:visited {
   border-radius: 12px;
   align-self: center;
   width: fit-content;
+  transform: translateX(20%);
 
 }
 
@@ -206,9 +207,6 @@ div .add-button:active {
   
 }
 
-.translate {
-
-}
 
 .shop-atr {
   margin-right: 2rem;
