@@ -100,6 +100,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0 8rem;
+  justify-self: center;
 }
 
 .shop-list{
@@ -111,11 +112,11 @@ main {
     rgba(36, 36, 36, 0.3)
   );
   border-radius: 12px;
+  margin-left: 16rem;
 
 }
 
 .list-header {
-  align-self: center;
   font-size: 3.2rem;
   margin-bottom: 2.4rem;
 }
@@ -168,4 +169,65 @@ div .add-button:hover,
 div .add-button:active {
   color: #7c5302;
   background-color: #a58a64;
+}
+
+.add-button,
+.add-button {
+  background-color: #7c5302;
+  color: #a58a64;
+  padding: 1.2rem;
+  font-size: 2.4rem;
+  border-radius: 12px;
+  align-self: center;
+  width: fit-content;
+  border: none;
+
+}
+
+.add-button:hover,
+.add-button:active {
+  color: #7c5302;
+  background-color: #a58a64;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  width: 40rem;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  
+}
+
+.translate {
+
+}
+
+.shop-atr {
+  margin-right: 2rem;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  transform: translateX(20%);
+}
+
+.shop-rating {
+  font-size: 1.8rem;
+  transform: translateX(20%);
+}
+
+.center {
+  justify-self: center;
+  grid-column: 1/-1;
+
+}
+
+.error {
+  color: red;
 }
